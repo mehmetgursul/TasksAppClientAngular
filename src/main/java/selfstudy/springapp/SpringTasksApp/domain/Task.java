@@ -7,6 +7,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.databind.ser.std.DateSerializer;
 
 @Entity
 public class Task {
@@ -15,7 +17,7 @@ public class Task {
 	private Long id;
 	private String name;
 	
-	@JsonFormat(pattern="dd/MM/yyyy")
+	@JsonFormat(pattern="MM/dd/yyyy")
 	private LocalDate dueDate;
 	
 	private Boolean completed;
