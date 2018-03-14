@@ -7,10 +7,11 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import com.fasterxml.jackson.databind.ser.std.DateSerializer;
+
+import io.swagger.annotations.ApiModel;
 
 @Entity
+@ApiModel(description = "Class representing a task.")
 public class Task {
 	@Id
 	@GeneratedValue
