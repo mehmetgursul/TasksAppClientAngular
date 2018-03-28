@@ -3,6 +3,7 @@ package selfstudy.springapp.SpringTasksApp.controller;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -16,7 +17,7 @@ import selfstudy.springapp.SpringTasksApp.domain.Task;
 import selfstudy.springapp.SpringTasksApp.service.ITaskService;
 
 @RestController
-@RequestMapping("/tasks/")
+@RequestMapping("/tasks")
 @Api(value = "Set of endpoints for listing and creating of Tasks", produces = MediaType.APPLICATION_JSON_VALUE)
 public class TaskController {
 	private ITaskService taskService;
@@ -39,6 +40,13 @@ public class TaskController {
 						 @RequestBody Task task)
 	{
 		return this.taskService.save(task);
+	}
+	
+	@PutMapping("/update")
+	@ApiOperation(value = "Update the given task")
+	public void updateCarDetail(@ApiParam("A Task information to be updated.") 
+								@RequestBody Task task) {
+		this.taskService.save(task);
 	}
 
 }

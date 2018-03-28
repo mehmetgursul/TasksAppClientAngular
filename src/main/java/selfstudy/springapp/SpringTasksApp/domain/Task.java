@@ -5,6 +5,7 @@ import java.time.LocalDate;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Version;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
@@ -22,6 +23,9 @@ public class Task {
 	private LocalDate dueDate;
 	
 	private Boolean completed;
+	
+	@Version
+	private Long version;
 
 	public Task() 
 	{
@@ -65,5 +69,13 @@ public class Task {
 
 	public void setCompleted(Boolean completed) {
 		this.completed = completed;
+	}
+
+	public Long getVersion() {
+		return version;
+	}
+
+	public void setVersion(Long version) {
+		this.version = version;
 	}			
 }
