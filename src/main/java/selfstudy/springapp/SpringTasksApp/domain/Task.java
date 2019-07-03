@@ -10,6 +10,7 @@ import javax.persistence.Version;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 import io.swagger.annotations.ApiModel;
+import org.json.JSONObject;
 
 @Entity
 @ApiModel(description = "Class representing a task.")
@@ -30,8 +31,19 @@ public class Task {
 	public Task() 
 	{
 		
-	}	
-	
+	}
+
+	@Override
+	public String toString() {
+		JSONObject js = new JSONObject();
+		js.put("name", this.name);
+		js.put("dueDate", this.dueDate);
+		js.put("id", this.id);
+		js.put("completed", this.completed);
+
+		return js.toString();
+	}
+
 	public Task(Long id, String name, LocalDate dueDate, Boolean completed) {
 		this.id = id;
 		this.name = name;
